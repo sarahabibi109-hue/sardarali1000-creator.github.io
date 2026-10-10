@@ -264,9 +264,9 @@ const SURE='تغییرات ذخیره‌نشده از بین می‌رود. بس
 dlg.oncancel=e=>{if(dirty&&!confirm(SURE))e.preventDefault()};
 dlg.addEventListener('close',()=>render());
 function openLogin(){
-  pnl.innerHTML=`<h3>ورود مدیر</h3><label for="pw">رمز عبور</label><input id="pw" type="password" autocomplete="current-password"><p class="help">رمز اولیه: 1234 — بعد از ورود حتماً عوض کنید.</p><p class="msg err" id="lerr"></p><div class="acts"><button class="btn blue" id="go" type="button">ورود</button><button class="btn ghost" id="x" type="button">بستن</button></div>`;
+  pnl.innerHTML=`<h3>ورود مدیر</h3><label for="pw">رمز عبور</label><input id="pw" type="password" autocomplete="current-password"><p class="help">رمز اولیه:134652 — بعد از ورود حتماً عوض کنید.</p><p class="msg err" id="lerr"></p><div class="acts"><button class="btn blue" id="go" type="button">ورود</button><button class="btn ghost" id="x" type="button">بستن</button></div>`;
   dlg.showModal();$('#pw').focus();
-  const go=()=>{const p=$('#pw').value;const ok=D.pw?hash(p)===D.pw:p==='1234';if(ok){W=clone(D);cur=L;dirty=false;draw()}else $('#lerr').textContent='رمز عبور درست نیست.'};
+  const go=()=>{const p=$('#pw').value;const ok=D.pw?hash(p)===D.pw:p==='mehranos1234567890';if(ok){W=clone(D);cur=L;dirty=false;draw()}else $('#lerr').textContent='رمز عبور درست نیست.'};
   $('#go').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};$('#x').onclick=()=>dlg.close();
 }
 const rowHtml=(k,s)=>{const ph=LISTS.find(x=>x[0]===k)[2];return `<div class="row"><input aria-label="${ph[0]}" placeholder="${ph[0]}" value="${esc(s.t)}"><input aria-label="${ph[1]}" placeholder="${ph[1]}" value="${esc(s.d)}"><span class="rb"><button type="button" class="btn ghost" data-up aria-label="بالا">↑</button><button type="button" class="btn ghost" data-dn aria-label="پایین">↓</button><button type="button" class="btn red" data-del>حذف</button></span></div>`};
